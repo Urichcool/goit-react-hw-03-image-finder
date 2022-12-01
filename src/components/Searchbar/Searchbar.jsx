@@ -16,9 +16,17 @@ export class SearchBar extends Component{
         this.setState({imgName: e.currentTarget.value.toLowerCase().trim()})
     }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        if (this.state.imgName === '') {
+            return
+        }
+        this.props.onSubmit(this.state.imgName)
+    }
+
     render() {
       return <SearchBarContainer>
-            <SearchBarForm>
+            <SearchBarForm onSubmit={this.handleSubmit}>
                 <SearchBarButton type="submit">
                     <SearchBarLabel>Search</SearchBarLabel>
                 </SearchBarButton>
