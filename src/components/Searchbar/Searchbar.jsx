@@ -26,8 +26,9 @@ export class SearchBar extends Component {
     if (this.state.imgName === '') {
       return;
     }
+
     this.props.onSubmit(this.state.imgName);
-    
+    this.setState({ imgName: '' });
   };
 
   render() {

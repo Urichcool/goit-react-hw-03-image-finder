@@ -32,14 +32,15 @@ export class App extends Component {
   };
 
   render() {
+    const {imgName, images, page} = this.state
     return (
       <AppContainer>
         <SearchBar onSubmit={this.handleFormSubmit} />
         <ImageGallery
-          imgName={this.state.imgName}
-          images={this.state.images}
+          imgName={imgName}
+          images={images}
           imagesHandler={this.imagesHandler}
-          page={this.state.page}
+          page={page}
           loadMore={this.loadMore}
         />
       </AppContainer>
