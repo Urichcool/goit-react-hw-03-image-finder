@@ -65,18 +65,24 @@ export class ImageGallery extends Component {
     return (
       <>
         {loading && <Loader />}
-        <ImageGalleryList onClick={this.openModal}>
-          {this.props.images.length !== 0 &&
-            this.props.images.map(({ id, webformatURL }) => {
-              return (
-                <ImageGalleryItem key={id} smallImg={webformatURL} id={id} />
-              );
-            })}
-        </ImageGalleryList>
         {this.props.images.length !== 0 && (
-          <ImageGalleryLoadButton type="button" onClick={() => {
-            this.props.loadMore()
-          }}>
+          <ImageGalleryList onClick={this.openModal}>
+            {this.props.images.length !== 0 &&
+              this.props.images.map(({ id, webformatURL }) => {
+                return (
+                  <ImageGalleryItem key={id} smallImg={webformatURL} id={id} />
+                );
+              })}
+          </ImageGalleryList>
+        )}
+
+        {this.props.images.length !== 0 && (
+          <ImageGalleryLoadButton
+            type="button"
+            onClick={() => {
+              this.props.loadMore();
+            }}
+          >
             Load more
           </ImageGalleryLoadButton>
         )}
